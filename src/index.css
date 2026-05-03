@@ -1,0 +1,213 @@
+/* ═══════════════════════════════════════════════════════════════════════
+   TAILWIND CSS IMPORT
+   ═══════════════════════════════════════════════════════════════════════ */
+@import "tailwindcss";
+
+/* ═══════════════════════════════════════════════════════════════════════
+   WHATSAPP WEB THEME & VARIABLES
+   ═══════════════════════════════════════════════════════════════════════ */
+:root {
+  /* ─── YOUR SELECTED ACCENT COLOR (Pink instead of WhatsApp Green) ─── */
+  --color-primary: #ec4899;           /* pink-500 — Main brand color */
+  --color-primary-dark: #db2777;      /* pink-600 */
+  --color-app-bg-strip: #ec4899;      /* The backdrop strip behind the app frame */
+
+  /* ─── EXACT WHATSAPP WEB STRUCTURAL COLORS ─── */
+  --wa-header-bg: #f0f2f5;           /* Classic gray for headers/sidebars */
+  --wa-panel-bg: #ffffff;            /* White main container */
+  --wa-app-bg: #d1d7db;              /* Deeper gray for app background around frame */
+  --wa-search-bg: #f0f2f5;           /* Background of search input container */
+  --wa-search-input: #ffffff;        /* Search input box */
+  --wa-border: #d1d7db;              /* Thin border separating sidebar */
+  --wa-hover: #f5f6f6;               /* Active chat/hover state color */
+  --wa-icon-color: #54656f;          /* Standard icon color */
+  --wa-chat-bg: #efeae2;             /* WhatsApp doodle wallpaper background */
+  
+  /* ─── MESSAGE CONVERSATION COLORS ─── */
+  --color-sent-bubble: #fccde8;       /* Custom pink sent message */
+  --color-received-bubble: #ffffff;   /* Standard white received message */
+  
+  /* ─── TYPOGRAPHY COLORS ─── */
+  --color-text-primary: #111eb0; /* Obsolete text variable */
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   GLOBAL STYLES
+   ═══════════════════════════════════════════════════════════════════════ */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300 900;
+  font-display: swap;
+  src: url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--wa-app-bg);
+  overflow: hidden;
+  height: 100vh;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   WHATSAPP CLASSIC SCROLLBARS
+   ═══════════════════════════════════════════════════════════════════════ */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(11, 20, 26, 0.2);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(11, 20, 26, 0.3);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   WHATSAPP CHAT WALLPAPER
+   ═══════════════════════════════════════════════════════════════════════ */
+.chat-wallpaper {
+  background-color: var(--wa-chat-bg);
+  /* A lighter, more authentic WhatsApp doodle pattern overlay */
+  background-image: url("https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png");
+  background-repeat: repeat;
+  background-blend-mode: overlay;
+  opacity: 0.95;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   MESSAGE APP UTILITIES
+   ═══════════════════════════════════════════════════════════════════════ */
+.bg-wa-header { background-color: var(--wa-header-bg); }
+.bg-wa-search { background-color: var(--wa-search-bg); }
+.bg-wa-hover { background-color: var(--wa-hover); }
+.text-wa-icon { color: var(--wa-icon-color); }
+.border-wa { border-color: var(--wa-border); }
+
+/* Message Subtleties */
+.msg-shadow {
+  box-shadow: 0 1px 0.5px rgba(11,20,26,.13);
+}
+
+/* Message bubble tail hacks */
+.bubble-tail-sent::after {
+  content: '';
+  position: absolute;
+  right: -8px;
+  top: 0;
+  border-width: 0 0 10px 10px;
+  border-style: solid;
+  border-color: transparent transparent transparent var(--color-sent-bubble);
+}
+
+.bubble-tail-received::after {
+  content: '';
+  position: absolute;
+  left: -8px;
+  top: 0;
+  border-width: 0 10px 10px 0;
+  border-style: solid;
+  border-color: transparent var(--color-received-bubble) transparent transparent;
+}
+
+/* Typing */
+@keyframes pulse-dot {
+  0%, 80%, 100% { transform: scale(0); }
+  40% { transform: scale(1.0); }
+}
+.typing-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--wa-icon-color);
+  border-radius: 50%;
+  display: inline-block;
+  animation: pulse-dot 1.2s infinite ease-in-out both;
+}
+.typing-dot:nth-child(1) { animation-delay: -0.32s; }
+.typing-dot:nth-child(2) { animation-delay: -0.16s; }
+
+/* ═══════════════════════════════════════════════════════════════════════
+   ANIMATIONS
+   ═══════════════════════════════════════════════════════════════════════ */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in { animation: fadeIn 0.15s ease-out; }
+
+/* ═══════════════════════════════════════════════════════════════════════
+   PROFILE / DISCOVERY / SETTINGS ANIMATIONS
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* Modal entrance */
+@keyframes modalIn {
+  from { opacity: 0; transform: scale(0.92) translateY(12px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+.animate-modal-in { animation: modalIn 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
+
+/* Modal backdrop */
+@keyframes backdropIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+.animate-backdrop-in { animation: backdropIn 0.2s ease-out; }
+
+/* Settings dropdown slide */
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-8px) scale(0.95); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+.animate-slide-down { animation: slideDown 0.2s cubic-bezier(0.16, 1, 0.3, 1); }
+
+/* Discovery card entrance */
+@keyframes cardIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Avatar pulse on upload */
+@keyframes avatarPulse {
+  0%   { box-shadow: 0 0 0 0 rgba(195, 55, 151, 0.4); }
+  70%  { box-shadow: 0 0 0 12px rgba(195, 55, 151, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(195, 55, 151, 0); }
+}
+
+/* Stat counter entrance */
+@keyframes statPop {
+  from { opacity: 0; transform: scale(0.5); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* Shimmer loading effect */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.shimmer-bg {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   STATUS (STORIES) ANIMATIONS
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* Status avatar fade-in */
+@keyframes statusFadeIn {
+  from { opacity: 0; transform: translateY(8px) scale(0.9); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
