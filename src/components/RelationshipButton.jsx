@@ -1,5 +1,5 @@
 import { useState, useCallback } from 'react';
-import { friendsAPI } from '../services/api';
+import { friendsAPI, userAPI } from '../services/api';
 import { getSocket } from '../services/socket';
 import {
   UserPlus, Clock, Check, X, MessageSquare,
@@ -297,7 +297,7 @@ export default function RelationshipButton({
           }}
           onMouseEnter={e => { e.currentTarget.style.background = '#fee2e2'; }}
           onMouseLeave={e => { e.currentTarget.style.background = C.dangerLight; }}
-          onClick={() => run('none', (userId) => import('../services/api').then(m => m.userAPI.unblockUser(userId)), [targetUserId])}
+          onClick={() => run('none', userAPI.unblockUser, [targetUserId])}
         >
           <ShieldOff size={15} />
           Unblock
