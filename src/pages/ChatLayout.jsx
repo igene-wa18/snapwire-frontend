@@ -228,14 +228,21 @@ export default function ChatLayout() {
                 width: '320px',
                 height: '200px',
                 marginBottom: '32px',
-                backgroundImage: `url('https://static.whatsapp.net/rsrc.php/v3/y6/r/wa669aeJeom.png')`,
+                backgroundImage: `url('/logo.png')`,
                 backgroundSize: 'contain',
                 backgroundRepeat: 'no-repeat',
                 backgroundPosition: 'center',
-                filter: 'hue-rotate(300deg) opacity(0.8)',
                 margin: '0 auto 32px',
               }} />
-              <h2 style={{ fontSize: '1.875rem', fontWeight: 300, color: '#41525d', marginBottom: '8px' }}>SnapWire for Desktop</h2>
+              <h2 style={{
+                fontSize: '1.875rem', fontWeight: 400, marginBottom: '8px',
+                background: 'linear-gradient(90deg, #2563eb 0%, #06b6d4 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+                color: 'transparent',
+                display: 'inline-block'
+              }}>synapsis for Desktop</h2>
               <p style={{ fontSize: '1.1rem', color: '#54656f', fontWeight: 500, marginBottom: '24px' }}>let you connect.</p>
               <p style={{ color: '#8696a0', fontSize: '0.875rem', lineHeight: 1.7 }}>
                 Select a conversation from the sidebar or search for users to start a new chat.<br/>

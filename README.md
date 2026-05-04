@@ -1,10 +1,10 @@
-# SnapWire Frontend - Real-Time Chat UI
+# Synapsis Frontend - Real-Time Chat UI
 
-This is the frontend for SnapWire, a modern, highly interactive messaging application built with React and Socket.io.
+This is the frontend for Synapsis, a modern, highly interactive messaging application built with React and Socket.io.
 
 ## 🎨 Design Philosophy
 
-SnapWire features a custom **Pink WhatsApp-inspired theme** designed for a premium, vibrant user experience.
+Synapsis features a custom **Pink WhatsApp-inspired theme** designed for a premium, vibrant user experience.
 - **Colors**: A curated palette centered around `#c33797` (Primary Pink) and smooth surfaces (`#f7f9fc`).
 - **Aesthetics**: Glassmorphism, fluid animations, and custom polished modals (Block, Report, Exit Group).
 - **Typography**: Clean, modern look using the **Inter** font family.
@@ -48,8 +48,8 @@ client/src/
 
 For production, the client requires the following environment variables (defined in your Vercel/Hosting dashboard):
 
-- `VITE_API_URL`: The URL of your deployed backend API (e.g., `https://api.snapwire.com/api`).
-- `VITE_SOCKET_URL`: The base URL of your deployed Socket.io server (e.g., `https://api.snapwire.com`).
+- `VITE_API_URL`: The URL of your deployed backend API (e.g., `https://api.Synapsis.com/api`).
+- `VITE_SOCKET_URL`: The base URL of your deployed Socket.io server (e.g., `https://api.Synapsis.com`).
 
 ## 🛠️ Development
 

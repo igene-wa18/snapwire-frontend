@@ -120,19 +120,20 @@ export default function AuthPage() {
 
         {/* Logo mark + wordmark */}
         <div style={{ position: 'relative', zIndex: 2, display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-          <div style={{
-            width: '2.5rem', height: '2.5rem', borderRadius: '0.625rem',
-            backgroundColor: C.primary, display: 'flex',
-            alignItems: 'center', justifyContent: 'center',
-            flexShrink: 0,
-          }}>
-            <MessageCircle size={18} color="#fff" />
-          </div>
+          <img src="/logo.png" alt="Synapsis Logo" style={{
+            width: '3rem', height: '3rem', borderRadius: '0.625rem',
+            objectFit: 'contain', flexShrink: 0,
+          }} />
           <span style={{
-            fontSize: '2.25rem', fontWeight: 700,
-            letterSpacing: '-0.02em', color: C.onSurface,
+            fontSize: '2.5rem', fontWeight: 700,
+            letterSpacing: '-0.02em',
+            background: 'linear-gradient(90deg, #2563eb 0%, #06b6d4 100%)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            backgroundClip: 'text',
+            color: 'transparent',
           }}>
-            SnapWire
+            synapsis
           </span>
         </div>
 
@@ -269,7 +270,7 @@ export default function AuthPage() {
             <p style={{ fontSize: '1.2rem', color: C.onSurfaceVariant, margin: 0 }}>
               {isLogin
                 ? 'Please enter your details to sign in.'
-                : 'Get started with SnapWire for free.'}
+                : 'Get started with Synapsis for free.'}
             </p>
           </div>
 
